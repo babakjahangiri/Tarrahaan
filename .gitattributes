@@ -3,7 +3,7 @@
 *.htm linguist-detectable=false 
 *.html linguist-detectable=false 
 *.cs linguist-detectable=true
-*.cshtml linguist-detectable=true
+*.cshtml linguist-detectable=false
 
 
 
