@@ -1,0 +1,37 @@
+﻿@using Tarrahaan.Helpers
+
+<nav class="navbar navbar-default sidebar" id="navadmin" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- Brand -->
+            <div class="brand-name-wrapper">
+                <a class="navbar-brand" href="http://www.tarahanagency.com">
+                    Tarahan
+                </a>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="@Html.SetActiveClass((string) ViewBag.SectionName, "dashboard")"><a href="~/webadmin/en/DashBoard"><span class="menu-title">DashBoard</span><span style="font-size:24px;" class="pull-right hidden-xs showopacity fa fa-dashboard"></span></a></li>
+                <li class="dropdown @Html.SetActiveClass((string) ViewBag.SectionName, "property")">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="menu-title">Property </span><span class="caret"></span><span style="font-size:24px;" class="pull-right hidden-xs showopacity itanicon itanicon-bulding1"></span></a>
+                    <ul class="dropdown-menu menu-subitem forAnimate" role="menu">
+                        <li class="menu-subitem"><a href="~/webadmin/en/Property/Add"><span class="menu-subtitle">Add Property</span></a></li>
+                        <li class="divider"></li>
+                        <li class="menu-subitem"><a href="~/webadmin/en/Property/List"><span class="menu-subtitle">Propertie's List</span></a></li>
+                        @*<li class="divider"></li>*@
+                    </ul>
+                </li>
+                <li class="@Html.SetActiveClass((string) ViewBag.SectionName, "sitepages")"><a href="~/webadmin/en/SitePages/List"><span class="menu-title @Html.SetActiveClass((string) ViewBag.SectionName, "sitepages")">Site Pages</span><span style="font-size:24px;" class="pull-right hidden-xs showopacity fa fa-file-code-o"></span></a></li>
+                <li class="@Html.SetActiveClass((string) ViewBag.SectionName, "profile")"><a href="~/webadmin/en/Manage/ChangePassword"><span class="menu-title @Html.SetActiveClass((string) ViewBag.SectionName, "profile")">Password</span><span style="font-size: 24px;" class="pull-right hidden-xs showopacity fa fa-lock"></span></a></li>
+                <li class="@Html.SetActiveClass((string) ViewBag.SectionName, "logoff")"><a href="~/webadmin/en/LogOffConfirm"><span class="menu-title @Html.SetActiveClass((string) ViewBag.SectionName, "logoff")">Log Off </span><span style="font-size:24px;" class="pull-right hidden-xs showopacity fa fa-sign-out"></span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

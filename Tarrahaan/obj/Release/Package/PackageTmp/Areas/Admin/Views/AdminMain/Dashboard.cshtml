@@ -1,0 +1,67 @@
+﻿@using Microsoft.AspNet.Identity
+@model Tarrahaan.Areas.Admin.Models.DashBoardViewModel
+@{
+    ViewBag.Title = "Dashboard";
+    ViewBag.SectionName = "dashboard";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="row">
+    <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+        <div class="page-title-seperator">
+            <div>
+                <h1 class="page-title">Dashboard</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@if (Request.IsAuthenticated)
+{
+    <h3>Welcome ,<b> @User.Identity.Name</b></h3>
+}
+
+<div class="row">
+    <div class="col-lg-4 colg-md-4 col-sm-4 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="background-color: #E4F1FE">
+                <i class="itanicon itanicon-bulding1 itanicon-5x" style="color: #4183D7;"></i>
+            </div>
+            <div class="panel-body">
+                <h1> Total : @Html.DisplayFor(m => m.TotalCount)</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 colg-md-4 col-sm-4 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="background-color: #FDE3A7">
+                <i class="itanicon itanicon-homesale itanicon-5x" style="color: #EB974E;"></i>
+            </div>
+            <div class="panel-body">
+                <h1>For Sale : @Html.DisplayFor(m => m.SaleCount)</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 colg-md-4 col-sm-4 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="background-color: #AEA8D3">
+                <i class="itanicon itanicon-homerent itanicon-5x" style="color: #8E44AD;"></i>
+            </div>
+            <div class="panel-body">
+                <h1>To Let : @Html.DisplayFor(m => m.RentCount)</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<p></p>
+<p>&nbsp;</p>
+<p> © copyright tarahanagenecy.com 2016</p>
+
+
+ 

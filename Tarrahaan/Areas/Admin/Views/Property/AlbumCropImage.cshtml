@@ -1,0 +1,89 @@
+﻿@using Tarrahaan.Helpers
+@model Tarrahaan.Areas.Admin.Models.CropImageViewModel
+@{
+    ViewBag.SectionName = "property";
+    ViewBag.Title = "Crop Image for 1:1 Ratio";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+    var TrueW = ViewBag.TrueW;
+    var TrueH = ViewBag.TrueH;
+
+}
+@section ExtraStyles
+{
+<link href="~/lib/Jcrop/jquery.Jcrop.css" rel="stylesheet" />
+
+}
+
+<div class="row">
+    <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+        <div class="page-title-seperator">
+            <div>
+                <h1 class="page-title">Crop Image For Album</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1>@ViewBag.test</h1> 
+@using (Html.BeginRouteForm("AlbumSaveImagePostAdminRoute", FormMethod.Post, null))
+{
+    @Html.AntiForgeryToken()
+
+<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+    @*<img src="~/Content/TempImages/temp.jpg" id="target" class="img-responsive"/>*@
+    <img class="img-responsive" id="target" src="@Url.Content(Html.GetPropertyImageTemp(Model.ImageId).ToString())" alt="">
+</div>
+<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+    <p>
+        <input type="submit" class="btn btn-primary" value="Crop Image & Save" />
+    </p>
+</div>
+
+
+    @Html.HiddenFor(m => m.CoordX)
+    @Html.HiddenFor(m => m.CoordY)
+    @Html.HiddenFor(m => m.CoordX2)
+    @Html.HiddenFor(m => m.CoordY2)
+    @Html.HiddenFor(m => m.Height)
+    @Html.HiddenFor(m => m.Width)
+    @Html.HiddenFor(m => m.PropertyId)
+    @Html.HiddenFor(m => m.ImageId)
+}
+
+
+@section scripts
+{
+        <script src="~/lib/Jcrop/jquery.Jcrop.min.js"></script>
+
+        <script language="Javascript">
+
+            jQuery(function ($) {
+                $('#target').Jcrop({
+                    trueSize: [@TrueW, @TrueH],
+                    onSelect: updateCoords,
+                    onChange: updateCoords,
+                    bgColor: 'black',
+                    bgOpacity: .5,
+                    setSelect: [0, 0, 600, 600],
+                    aspectRatio: 1
+                    //boxWidth: 600, boxHeight: 600
+                });
+            });
+
+
+            function updateCoords(c) {
+                jQuery('#CoordX').val(c.x);
+                jQuery('#CoordY').val(c.y);
+                jQuery('#CoordX2').val(c.x2);
+                jQuery('#CoordY2').val(c.y2);
+                jQuery('#Width').val(c.w);
+                jQuery('#Height').val(c.h);
+            };
+
+        </script>
+
+
+    }
+
+ 

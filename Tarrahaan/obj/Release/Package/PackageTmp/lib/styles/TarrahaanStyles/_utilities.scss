@@ -1,0 +1,84 @@
+﻿// ------------- Parametric Styles Class ----------
+.font-xxs{font-size:0.625em;} //10 px
+.font-xs{font-size:0.75em;} //12 px
+.font-s{font-size:0.875em;} //14 px
+.font-m{font-size:1em;} //16 px
+.font-l{font-size:1.125em;} //18 px
+.font-xl{font-size:1.250em;} //20px
+.font-xxl{font-size:1.375em;} //22px
+.text-larger{font-size:150%;}
+.text-large{font-size:125%;}
+.text-small{font-size:75%;}
+.text-smaller{font-size:50%;}
+
+///===== margins ==============
+.margin-5{margin:5px 5px 5px 5px;}
+.margin-10{margin:10px 10px 10px 10px;}
+.margin-15{margin:15px 15px 15px 15px;}
+.margin-20{margin:20px 20px 20px 20px;}
+
+.margin-top-10{margin-top:10px;}
+.margin-top-20{margin-top:20px;}
+.margin-bottom-10{margin-bottom:10px;}
+.margin-bottom-20{margin-bottom:20px;}
+.margin-right-10{margin-right:10px;}
+.margin-right-20{margin-right:20px;}
+.margin-left-10{margin-left:10px;}
+.margin-left-20{margin-left:10px;}
+
+//==== paddings ==================
+
+.padding-5{padding:5px 5px 5px 5px;}
+.padding-10{padding:10px 10px 10px 10px;}
+.padding-15{padding:15px 15px 15px 15px;}
+.padding-20{padding:20px 20px 20px 20px;}
+
+.padding-top-10{padding-top:10px;}
+.padding-top-20{padding-top:20px;}
+.padding-bottom-10{padding-bottom:10px;}
+.padding-bottom-20{padding-bottom:20px;}
+.padding-right-0{padding-right:0;}
+.padding-right-10{padding-right:10px;}
+.padding-right-20{padding-right:20px;}
+.padding-left-0{padding-left:0;}
+.padding-left-10{padding-left:10px;}
+.padding-left-20{padding-left:10px;}
+
+//== For Float ====
+.align-right{float:right;}
+.align-left{float:left;}
+.align-justify{text-align: justify;}
+.align-center{text-align:center;margin:0 auto 0 auto;}
+
+.rtl{direction:rtl;}
+.ltr{direction:ltr;}
+
+//=== Colors ==================
+.color-turquoise{color:#1abc9c;}
+.color-emerald{color:#2ecc71;}
+.color-peterriver{color:#3498db;}
+.color-amethyst{color:#9b59b6;}
+.color-wetasphalt{color:#34495e;}
+.color-greensea{color:#16a085;}
+.color-nephritis{color:#27ae60;}
+.color-belizehole{color:#2980b9;}
+.color-wisteria{color:#8e44ad;}
+.color-midnightblue{color:#2c3e50;}
+.color-sunflower{color:#f1c40f;}
+.color-carrot{color:#e67e22;}
+.color-alizarin{color:#e74c3c;}
+
+// =================== Bootstrap =====================
+//---------- Bottons ------------
+.btn-xlg{
+    border-radius: $border-radius-all;
+    font-size: 25px;
+    line-height: 1.33333;
+    padding: 10px 16px;
+}
+
+.btn-xxlg{
+    font-size: 30px;
+    //line-height: 1.33333;
+   // padding: 10px 16px;
+}

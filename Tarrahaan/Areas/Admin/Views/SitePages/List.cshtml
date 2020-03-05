@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Tarrahaan.Areas.Admin.Models.SitePageListViewModel>
+@{
+    ViewBag.SectionName = "sitepages";
+    ViewBag.Title = "ListPages";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section ExtraStyles
+{
+    <style>
+        .tbl {
+            display: table;
+        }
+
+        .tblcel {
+            display: table-cell;
+            vertical-align: middle !important;
+        }
+    </style>
+
+}
+
+<article>
+    <div class="row">
+        <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+            <div class="page-title-seperator">
+                <div>
+                    <h1 class="page-title">List Site Pages</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            Error : @ViewBag.Error
+        </div>
+    }
+
+    <table class="tbl table table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>Page Name</th>
+                <th>Edit English Content</th>
+                <th>Edit Persian Content </th>
+            </tr>
+        </thead>
+        <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="tblcel">
+                    @Html.DisplayFor(m => item.Name)
+                </td>
+                <th class="tblcel">
+                    <a href="@Url.RouteUrl(new {controller = "SitePages", action = "Edit", lang = (dynamic) "en", PageLang = @"en", SitePageId = @item.Id})" class="btn btn-default btn-lg">
+                        <img src="~/Content/Images/en-flag.png" class="img-responsive flag-tab" alt="English"/>
+                        Edit English Content
+                    </a>
+                </th>
+
+                <th class="tblcel">
+                    <a href="@Url.RouteUrl(new {controller = "SitePages", action = "Edit", lang = (dynamic) "en", PageLang = @"fa", SitePageId = @item.Id})" class="btn btn-default btn-lg">
+                        <img src="~/Content/Images/fa-flag.png" class="img-responsive flag-tab" alt="Persian"/>
+                        Edit Persian Content
+                    </a>
+                </th>
+            </tr>
+
+        
+
+            @*new { controller = "SitePages", action = "Edit", lang = ViewBag.Lang, PageLang = "fa", SitePageId = @item.Id }*@
+
+        }
+        </tbody>
+    </table>
+    </article>
+

@@ -1,0 +1,48 @@
+﻿ @import "_variables.scss";
+
+ //======= Fonts Setting ===========
+
+ $fontfamily:"Open Sans",Helvetica,Arial,sans-serif;
+ $fontweightnormal:normal;
+ $fontweightbold:bold;
+
+
+ // ---------- Font Size ------------
+
+$fontsize-xxs : 0.875em; 
+$fontsize-xs:1.000em;
+$fontsize-s:1.125em;
+$fontsize-m:1.250em;
+$fontsize-l:1.375em;
+$fontsize-xl:1.5em;
+$fontsize-xxl : 1.625em;
+ 
+
+$fontsize-h1:2.125em;
+$fontsize-h2:1.875em;
+$fontsize-h3:1.625em;
+$fontsize-h4:1.563em;
+$fontsize-h5:1.375em;
+$fontsize-h6:1.250em;
+//-------- Font line height ------------
+
+$lineheight-footerlink:1.875em;
+$fontweight-footerlink:600;
+$fontsize-footerlink:1.000em;
+
+//-------- Lastest Items -----------------
+$paddingfirstline-10:0 0 0 10px;
+
+//---------- Property List -----------------
+$proplist-image-float:left;
+$proplist-body-float:right;
+$proplist-title-fontsize:1.875em;
+
+$float-converse-left:right;
+
+//----pages ------------
+$page-seperator-padding:0 40px 0 10px; 
+
+$direction:ltr;
+$float:left;
+$float-reverse:right;

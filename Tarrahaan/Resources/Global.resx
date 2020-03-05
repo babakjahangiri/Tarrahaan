@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="aboutus" xml:space="preserve">
+    <value>About us</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="contactus" xml:space="preserve">
+    <value>Contact us</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="moredetails" xml:space="preserve">
+    <value>More Details</value>
+    <comment>buttons</comment>
+  </data>
+  <data name="office" xml:space="preserve">
+    <value>Office</value>
+  </data>
+  <data name="rent" xml:space="preserve">
+    <value>To Let</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="sale" xml:space="preserve">
+    <value>For Sale</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Sqrmeter" xml:space="preserve">
+    <value>m&lt;sup&gt;2&lt;/sup&gt;</value>
+    <comment>Property</comment>
+  </data>
+  <data name="view" xml:space="preserve">
+    <value>View</value>
+    <comment>forms</comment>
+  </data>
+  <data name="villa" xml:space="preserve">
+    <value>Villa</value>
+  </data>
+  <data name="SeoDescription_About" xml:space="preserve">
+    <value>Tarahan aganecy | about us</value>
+    <comment>SEO Description</comment>
+  </data>
+  <data name="SeoDescription_Contact" xml:space="preserve">
+    <value>Tarahan aganecy | Contact us</value>
+    <comment>SEO Description</comment>
+  </data>
+  <data name="SeoDescription_ListProperties" xml:space="preserve">
+    <value>Tarahan aganecy | List of properties</value>
+    <comment>SEO Description</comment>
+  </data>
+  <data name="SeoDescription_MainPage" xml:space="preserve">
+    <value>Tarahan aganecy | Housing Agenecy in Tehran</value>
+    <comment>SEO Description</comment>
+  </data>
+  <data name="SeoDescription_ShowProperty" xml:space="preserve">
+    <value>Tarahan aganecy  | Show property</value>
+    <comment>SEO Description</comment>
+  </data>
+  <data name="SeoKeyword_About" xml:space="preserve">
+    <value>About us,Tarahan aganecy</value>
+    <comment>SEO Keyword</comment>
+  </data>
+  <data name="SeoKeyword_Contact" xml:space="preserve">
+    <value>contact us,Tarahan aganecy</value>
+    <comment>SEO Keyword</comment>
+  </data>
+  <data name="SeoKeyword_ListProperties" xml:space="preserve">
+    <value>rent,sale,buy,office,commercial,residential,apartment,villa,tehran,furnished</value>
+    <comment>SEO Description</comment>
+  </data>
+  <data name="SeoKeyword_MainPage" xml:space="preserve">
+    <value>rent,sale,buy,tehran,furnished,tarrahaan</value>
+    <comment>SEO Keyword</comment>
+  </data>
+  <data name="SeoTitle_ListProperties" xml:space="preserve">
+    <value>Tarahan aganecy  | List Properties</value>
+    <comment>SEO Title</comment>
+  </data>
+  <data name="page" xml:space="preserve">
+    <value>Page</value>
+    <comment>Paging</comment>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>of</value>
+    <comment>Paging</comment>
+  </data>
+  <data name="askingprice" xml:space="preserve">
+    <value>Asking Price</value>
+    <comment>Property View</comment>
+  </data>
+  <data name="bathroom" xml:space="preserve">
+    <value>Bathroom(s)</value>
+    <comment>Property View</comment>
+  </data>
+  <data name="bedroom" xml:space="preserve">
+    <value>Bedroom(s)</value>
+    <comment>Property View</comment>
+  </data>
+  <data name="builtup" xml:space="preserve">
+    <value>Built up</value>
+    <comment>Property View</comment>
+  </data>
+  <data name="depositfee" xml:space="preserve">
+    <value>Deposit Fee</value>
+    <comment>Property View</comment>
+  </data>
+  <data name="landarea" xml:space="preserve">
+    <value>Land Area</value>
+    <comment>Property View</comment>
+  </data>
+  <data name="parking" xml:space="preserve">
+    <value>Parking(s)</value>
+    <comment>Property View</comment>
+  </data>
+  <data name="PropertyFeature" xml:space="preserve">
+    <value>Property Feature</value>
+    <comment>Property View</comment>
+  </data>
+  <data name="rentalfee" xml:space="preserve">
+    <value>Rental Fee (Monthly)</value>
+    <comment>Property View</comment>
+  </data>
+  <data name="specifications" xml:space="preserve">
+    <value>Specifications</value>
+    <comment>Property View</comment>
+  </data>
+  <data name="LatestProperties" xml:space="preserve">
+    <value>Latest Properties</value>
+    <comment>Home Page</comment>
+  </data>
+  <data name="NoImageAvailable" xml:space="preserve">
+    <value>Image Not Available</value>
+  </data>
+  <data name="LastUpdate" xml:space="preserve">
+    <value>Last Update</value>
+    <comment>Property View</comment>
+  </data>
+  <data name="all" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="SeoTitle_About" xml:space="preserve">
+    <value>Tarahan aganecy | About us</value>
+    <comment>SEO Title</comment>
+  </data>
+  <data name="SeoTitle_Contact" xml:space="preserve">
+    <value>Tarahan aganecy | Contact us</value>
+    <comment>SEO Title</comment>
+  </data>
+  <data name="SeoTitle_Home" xml:space="preserve">
+    <value>Tarahan aganecy | Rent , Sale Property in Tehran</value>
+    <comment>SEO Title</comment>
+  </data>
+</root>

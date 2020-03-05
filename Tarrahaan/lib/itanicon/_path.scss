@@ -1,0 +1,15 @@
+/* FONT PATH
+ * -------------------------- */
+
+@font-face {
+  font-family: 'Itanicon';
+  src: url('#{$font-path}/Itanicon.eot?v=#{$version}');
+  src: url('#{$font-path}/Itanicon.eot?#iefix&v=#{$version}') format('embedded-opentype'),
+    url('#{$font-path}/Itanicon.woff2?v=#{$version}') format('woff2'),
+    url('#{$font-path}/Itanicon.woff?v=#{$version}') format('woff'),
+    url('#{$font-path}/Itanicon.ttf?v=#{$version}') format('truetype'),
+    url('#{$font-path}/Itanicon.svg?v=#{$version}#itaniconregular') format('svg');
+//  src: url('#{$font-path}/itanicon.otf') format('opentype'); // used when developing fonts
+  font-weight: normal;
+  font-style: normal;
+}

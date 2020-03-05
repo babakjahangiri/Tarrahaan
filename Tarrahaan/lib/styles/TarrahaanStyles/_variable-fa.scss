@@ -1,0 +1,52 @@
+﻿ @import "_variables.scss";
+
+ //======= Fonts Setting ===========
+
+ $fontfamily: "BYekanFa", Arial, Helvetica, sans-serif;
+ $fontweightnormal:normal;
+ $fontweightbold:bold;
+
+
+ 
+// ---------- Font Size ------------
+$fontsize-xxs:0.875em;
+$fontsize-xs:1.000em;
+$fontsize-s:1.125em;
+$fontsize-m:1.250em;
+$fontsize-l:1.375em;
+$fontsize-xl:1.5em;
+$fontsize-xxl:1.625em;
+
+$fontsize-h1:2.125em;
+$fontsize-h2:2.000em;
+$fontsize-h3:1.75em;
+$fontsize-h4:1.625em;
+$fontsize-h5:1.5em;
+$fontsize-h6:1.375em;
+
+//-------- Font line height ------------
+
+$lineheight-footerlink:1.875em;
+$fontweight-footerlink:normal;
+$fontsize-footerlink:1.125em;
+
+//-------- Lastest Items -----------------
+
+$paddingfirstline-10:0 10px 0 0;
+
+
+//---------- Property List -----------------
+
+$proplist-image-float:right;
+$proplist-body-float:left;
+$proplist-title-fontsize:1.625em;
+
+$float-converse-left:left;
+
+
+//----pages ------------
+$page-seperator-padding:0 10px 0 40px;
+
+$direction:rtl;
+$float:right;
+$float-reverse:left;

@@ -1,0 +1,62 @@
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
+
+//-------- itanicon Icons ------------
+.#{$css-prefix}-smileface:before { content: "\e100"; }
+.#{$css-prefix}-winkface:before { content: "\e101"; }
+.#{$css-prefix}-wink2face:before { content: "\e102"; }
+.#{$css-prefix}-sadface:before { content: "\e103"; }
+.#{$css-prefix}-likeface:before { content: "\e104"; }
+.#{$css-prefix}-surpriseface:before { content: "\e105"; }
+.#{$css-prefix}-sunglassesface:before { content: "\e106"; }
+.#{$css-prefix}-refresh:before { content: "\e10c"; }
+.#{$css-prefix}-loading:before { content: "\e10d"; }
+.#{$css-prefix}-bulding1:before { content: "\e112"; }
+.#{$css-prefix}-moneyclaim:before { content: "\e115"; }
+.#{$css-prefix}-boxclaim:before { content: "\e116"; }
+.#{$css-prefix}-handshake:before { content: "\e117"; }
+
+
+.#{$css-prefix}-bighandclaim:before { content: "\e118"; }
+.#{$css-prefix}-suggest1:before { content: "\e11d"; }
+.#{$css-prefix}-target:before { content: "\e11e"; }
+.#{$css-prefix}-suggest2:before { content: "\e11f"; }
+.#{$css-prefix}-store1:before { content: "\e120"; }
+.#{$css-prefix}-store2:before { content:"\e121"; }
+.#{$css-prefix}-store3:before { content: "\e122"; }
+.#{$css-prefix}-store4:before { content:"\e123"; }
+
+
+.#{$css-prefix}-suggeststore:before { content: "\e124"; }
+.#{$css-prefix}-cartinlaptop:before { content: "\e125"; }
+.#{$css-prefix}-cart1:before { content: "\e126"; }
+.#{$css-prefix}-cart2:before { content:"\e127"; }
+.#{$css-prefix}-cart3:before { content: "\e128"; }
+.#{$css-prefix}-cart4:before { content: "\e129"; }
+
+
+.#{$css-prefix}-garage:before { content: "\e200"; }
+.#{$css-prefix}-parking:before { content: "\e201"; }
+.#{$css-prefix}-bathtube:before { content: "\e202"; }
+.#{$css-prefix}-bathtube2:before { content: "\e203"; }
+.#{$css-prefix}-showerhead:before { content: "\e204"; }
+.#{$css-prefix}-masterbed:before { content: "\e205"; }
+.#{$css-prefix}-masterbed2:before { content: "\e206"; }
+.#{$css-prefix}-singlebed:before { content: "\e207"; }
+.#{$css-prefix}-kitchen:before { content: "\e208"; }
+.#{$css-prefix}-tvset:before { content: "\e209"; }
+.#{$css-prefix}-washingmachine:before { content: "\e20a"; }
+.#{$css-prefix}-toilet:before { content: "\e20b"; }
+.#{$css-prefix}-toiletman:before { content: "\e20c"; }
+.#{$css-prefix}-swimmingpool:before { content: "\e20d"; }
+.#{$css-prefix}-remotegarage:before { content: "\e20e"; }
+.#{$css-prefix}-remotedoor:before { content: "\e20f"; }
+.#{$css-prefix}-cctv:before { content: "\e211"; }
+.#{$css-prefix}-wifi:before { content: "\e212"; }
+.#{$css-prefix}-gym:before { content: "\e213"; }
+.#{$css-prefix}-plan:before { content: "\e214"; }
+.#{$css-prefix}-homeprice:before { content: "\e215"; }
+.#{$css-prefix}-homesearch:before { content: "\e216"; }
+.#{$css-prefix}-homesold:before { content: "\e217"; }
+.#{$css-prefix}-homesale:before { content: "\e218"; }
+.#{$css-prefix}-homerent:before { content: "\e219"; }

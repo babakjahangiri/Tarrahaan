@@ -1,0 +1,322 @@
+﻿@using System.ServiceModel.Configuration
+@model Tarrahaan.Areas.Admin.Models.PropertyViewModel
+
+@{
+    ViewBag.Title = "ShowProperty";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@section ExtraStyles{
+
+    @*@Styles.Render("~/assets/css/hint-ltr")*@
+
+}
+<div class="row">
+    <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+        <div class="page-title-seperator">
+            <div>
+                <h1 class="page-title">Show Property</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        Error : @ViewBag.Error
+    </div>
+}
+
+
+
+<ul class="nav nav-tabs">
+    <li role="contentinfo" class="active"><a>Property Info</a></li>
+    <li role="contentinfo"><a href="~/WebAdmin/en/Property/Album/@ViewBag.PropertyId">Property Album</a></li>
+</ul>
+
+
+<article class="tab-border tab-container-master">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-horizontal">
+
+            <div class="form-group">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    @Html.LabelFor(m => m.ItemCode)
+                </div>
+                <div class="col-lg-6 col-md-8 col-sm-8 col-xs-6">
+                    @Html.DisplayFor(m => m.ItemCode)
+                </div>
+                <div class="col-lg-4 col-md-2 hidden-sm hidden-xs"></div>
+            </div>
+
+            <div class="form-group ">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    @Html.LabelFor(m => m.ActionName)
+                </div>
+                <div class="col-lg-6 col-md-8 col-sm-8 col-xs-6">
+                    @Html.DisplayFor(m => m.ActionName)
+                </div>
+                <div class="col-lg-4 hidden-md hidden-sm hidden-xs"></div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    @Html.LabelFor(m => m.CategoryName)
+                </div>
+                <div class="col-lg-6 col-md-8 col-sm-8 col-xs-6">
+                    @Html.DisplayFor(m => m.CategoryName)
+                </div>
+                <div class="col-lg-4 hidden-md hidden-sm hidden-xs"></div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    @Html.LabelFor(m => m.TypeName)
+                </div>
+                <div class="col-lg-6 col-md-8 col-sm-8 col-xs-6">
+                    @Html.DisplayFor(m => m.TypeName)
+                </div>
+                <div class="col-lg-4 hidden-md hidden-sm hidden-xs"></div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-2 col-md-2 col-sm-4 hidden-xs"></div>
+                <div class="form-inline col-lg-10 col-md-10 col-sm-8 col-xs-12">
+                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3"><i class="itanicon itanicon-singlebed itanicon-2x margin-5" aria-hidden="true"></i><span class="badge margin-5">@Html.DisplayFor(m => m.BedRoomNo)</span></div>
+                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3"><i class="itanicon itanicon-bathtube itanicon-2x margin-5" aria-hidden="true"></i><span class="badge margin-5">@Html.DisplayFor(m => m.BathRoomNo)</span></div>
+                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3"><i class="itanicon itanicon-garage itanicon-2x margin-5" aria-hidden="true"></i><span class="badge margin-5">@Html.DisplayFor(m => m.ParkingNo)</span></div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    @Html.LabelFor(m => m.FurnishingName)
+                </div>
+                <div class="col-lg-6 col-md-8 col-sm-8 col-xs-6">
+                    @Html.DisplayFor(m => m.FurnishingName)
+                </div>
+                <div class="col-lg-4 hidden-md hidden-sm hidden-xs"></div>
+            </div>
+
+            @* Built-up - LandArea *@
+
+            <div class="form-group">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    @Html.LabelFor(m => m.Builtup)
+                </div>
+                <div class="col-lg-6 col-md-8 col-sm-8 col-xs-6">
+                    @Html.DisplayFor(m => m.Builtup)
+                    <span>@Html.Raw(Tarrahaan.Resources.Global.Sqrmeter)</span>
+                </div>
+                <div class="col-lg-4 hidden-md hidden-sm hidden-xs"></div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    @Html.LabelFor(m => m.LandArea)
+                </div>
+                <div class="col-lg-6 col-md-8 col-sm-8 col-xs-6">
+                    @Html.DisplayFor(m => m.LandArea)
+                    <span>@Html.Raw(Tarrahaan.Resources.Global.Sqrmeter)</span>
+                </div>
+                <div class="col-lg-4 hidden-md hidden-sm hidden-xs"></div>
+            </div>
+
+
+            @* Currency *@
+
+            <div class="form-group">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    @Html.LabelFor(m => m.CurrencyName)
+                </div>
+                <div class="col-lg-6 col-md-8 col-sm-8 col-xs-6">
+                    @Html.DisplayFor(m => m.CurrencyName)
+                </div>
+                <div class="col-lg-4 hidden-md hidden-sm hidden-xs"></div>
+            </div>
+            @if (Model.SelectedActionId == 1)
+            {
+                @* Asking price *@
+                <div class="form-group">
+                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                        @Html.LabelFor(m => m.AskingPrice)
+                    </div>
+                    <div class="col-lg-6 col-md-8 col-sm-8 col-xs-6">
+                        @Html.DisplayFor(m => m.AskingPrice)
+                        <span>@Html.DisplayFor(m => m.CurrencyName)</span>
+                    </div>
+                    <div class="col-lg-4 hidden-md hidden-sm hidden-xs"></div>
+                </div>
+            }
+
+            @if (Model.SelectedActionId == 2)
+            {
+                @* Rent Price , Deposit price *@
+                <div class="form-group">
+                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                        @Html.LabelFor(m => m.RentDepositPrice)
+                    </div>
+                    <div class="col-lg-6 col-md-8 col-sm-8 col-xs-6">
+                        @Html.DisplayFor(m => m.RentDepositPrice)
+                        <span>@Html.DisplayFor(m => m.CurrencyName)</span>
+                    </div>
+                    <div class="col-lg-4 hidden-md hidden-sm hidden-xs"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                        @Html.LabelFor(m => m.RentMonthlyPrice)
+                    </div>
+                    <div class="col-lg-6 col-md-8 col-sm-8 col-xs-6">
+                        @Html.DisplayFor(m => m.RentMonthlyPrice)
+                        <span>@Html.DisplayFor(m => m.CurrencyName)</span>
+                    </div>
+                    <div class="col-lg-4 hidden-md hidden-sm hidden-xs"></div>
+                </div>
+            }
+
+
+
+
+
+            @*Admin Comment *@
+            <div class="form-group">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    @Html.LabelFor(m => m.AdminComment)
+                </div>
+                <div class="col-lg-6 col-md-8 col-sm-8 col-xs-6">
+                    @Html.DisplayFor(m => m.AdminComment)
+                </div>
+                <div class="col-lg-4 hidden-md hidden-sm hidden-xs"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <br /><br />
+
+    <div class="row">
+        <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#en"><img src="~/Content/Images/en-flag.png" class="img-responsive flag-tab" alt="English" />&nbsp; English</a></li>
+                <li><a data-toggle="tab" href="#fa"><img src="~/Content/Images/fa-flag.png" class="img-responsive flag-tab" alt="Persian" />&nbsp; Persian</a></li>
+            </ul>
+
+            <div class="tab-content tab-border tab-container">
+
+                @*
+                    var langContent = Model.PropertyLangMapping;
+                    @for (int i ; i< Model.PropertyLangMapping.Lenght; i++)
+                    // its statis assing , can have dynamic language assignment
+                *@
+
+                <div id="en" class="tab-pane fade in active">
+                    @if (Model.PropertyLangMapping.ElementAtOrDefault(0) != null)
+                    {
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group font-l">
+                                    @*@Html.LabelFor(m => m.PropertyLangMapping[0].Title, htmlAttributes: new {@for = "en-title"})*@
+                                    <b> @Html.DisplayFor(m => m.PropertyLangMapping[0].Title, new { @class = "", @id = "en-title" })</b> 
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group font-l">
+                                    @*@Html.LabelFor(m => m.PropertyLangMapping[0].Details, htmlAttributes: new {@for = "en-details"})*@
+                                    @Html.DisplayFor(m => m.PropertyLangMapping[0].Details, new { @id = "en-details", @class = "" })
+                                </div>
+                            </div>
+                            @Html.HiddenFor(m => m.PropertyLangMapping[0].LangId, new { @Value = "en" })
+                        </div>
+                    }
+                </div>
+
+
+                <div id="fa" class="tab-pane fade in">
+                    @if (Model.PropertyLangMapping.ElementAtOrDefault(1) != null)
+                    {
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group rtl font-l">
+                                    @*@Html.LabelFor(m => m.PropertyLangMapping[1].Title, htmlAttributes: new {@for = "fa-title"})*@
+                                    <b>@Html.DisplayFor(m => m.PropertyLangMapping[1].Title, new { @class = "rtl", @id = "fa-title" })</b> 
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group rtl font-l">
+                                   
+                                    @*@Html.LabelFor(m => m.PropertyLangMapping[1].Details, htmlAttributes: new {@for = "fa-details"})*@
+                                    @Html.DisplayFor(m => m.PropertyLangMapping[1].Details, new {@id = "fa-details", @class = "rtl"})
+                                </div>
+                            </div>
+                            @Html.HiddenFor(m => m.PropertyLangMapping[1].LangId, new { @Value = "fa" })
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</article>
+@{
+
+}
+
+<p>
+    <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#delPropertyModal">Delete</button>
+    &nbsp;&nbsp;&nbsp;
+    @Html.RouteLink(" Edit ", "EditPropertyRoute", new {PropertyId = @Model.PropertyId}, htmlAttributes: new {@class = "btn btn-default btn-lg"})
+</p>
+<p>&nbsp;</p>
+
+
+<!-- Modal -->
+<div id="delPropertyModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete Property Confirmation</h4>
+            </div>
+            <div class="modal-body">
+                <p>By clicking on delete buttom , all images in property's album and Contents belong to this property will be deleted .</p>
+               
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancel</button>
+                @Html.RouteLink("Confirm, Delete ", "DeletePropertyRoute", new { PropertyId = @Model.PropertyId }, htmlAttributes: new { @class = "btn btn-danger btn-lg" })
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts
+{
+
+    <script>
+
+        $(document).ready(function () {
+
+        });
+
+
+    </script>
+
+}
+
+
+
+
+
+
+

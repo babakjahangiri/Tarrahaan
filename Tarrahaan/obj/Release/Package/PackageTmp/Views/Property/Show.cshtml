@@ -1,0 +1,203 @@
+﻿@using System.Globalization
+@using Tarrahaan.CoreLib.Localization
+@using Tarrahaan.Helpers
+
+@model IEnumerable<Tarrahaan.Models.ShowPropertySiteModel>
+
+
+@{
+//  ViewBag.Title = "Show";
+//  Layout = "~/Views/Shared/_Layout.test.cshtml";
+
+// 2 models in one view 
+//http://stackoverflow.com/questions/4764011/multiple-models-in-a-view
+
+}
+
+@section PageSeo{
+
+<link rel="canonical" href="@ViewBag.canonical">
+<title>
+    @ViewBag.Title
+</title>
+<meta name="keywords" content="">
+<meta name="description" content="@Tarrahaan.Resources.Global.SeoDescription_ShowProperty">
+<meta name="ROBOTS" content="INDEX, FOLLOW">
+}
+
+
+@section extrastyles{
+
+    @Styles.Render("~/assets/css/PgwSlideshow") 
+}
+
+@section scripts{
+
+    @Scripts.Render("~/assets/js/PgwSlideshow")
+
+    <script>
+
+       // var pgwSlideshow = $('.pgwSlideshow').pgwSlideshow();
+        var pgwSlideshow = $('.pgwSlideshow');
+
+        if ($(this).width() > 767) {
+            $(pgwSlideshow).pgwSlideshow({
+                transitionEffect: 'fading',
+                autoSlide: true,
+                transitionDuration: 1000,
+                intervalDuration: 4000
+            });
+        }
+
+        if ($(this).width() < 767) {
+            $(pgwSlideshow).pgwSlideshow({
+                transitionEffect: 'sliding',
+                touchControls: true,
+                displayList: false,
+                autoSlide: false
+            });
+        }
+
+    </script>
+
+
+}
+
+<section class="container-fluid">
+@foreach (var item in Model)
+{
+    <div class="row property-main">
+        <article class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="row">
+                <figcaption class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="property-title">
+                        <h1>@Html.DisplayFor(modelItem => item.Title)</h1>
+                    </div>
+                </figcaption>
+            </div>
+            <div class="row">
+                <figure class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ltr">
+                    @*<ul class="pgwSlideshow">
+                        <li><img src="~/Content/PropImg/i1/thumb/001_t.jpg" data-large-src=@Url.Content("~/Content/PropImg/i1/large/001.jpg") alt=""></li>
+                        <li><img src="~/Content/PropImg/i1/thumb/002_t.jpg" data-large-src=@Url.Content("~/Content/PropImg/i1/large/002.jpg") alt=""></li>
+                        <li><img src="~/Content/PropImg/i1/thumb/003_t.jpg" data-large-src=@Url.Content("~/Content/PropImg/i1/large/003.jpg") alt=""></li>
+                        <li><img src="~/Content/PropImg/i1/thumb/004_t.jpg" data-large-src=@Url.Content("~/Content/PropImg/i1/large/004.jpg") alt=""></li>
+                        <li><img src="~/Content/PropImg/i1/thumb/005_t.jpg" data-large-src=@Url.Content("~/Content/PropImg/i1/large/005.jpg") alt=""></li>
+                        <li><img src="~/Content/PropImg/i1/thumb/006_t.jpg" data-large-src=@Url.Content("~/Content/PropImg/i1/large/006.jpg") alt=""></li>
+                        <li><img src="~/Content/PropImg/i1/thumb/001_t.jpg" data-large-src=@Url.Content("~/Content/PropImg/i1/large/001.jpg") alt=""></li>
+                        <li><img src="~/Content/PropImg/i1/thumb/006_t.jpg" data-large-src=@Url.Content("~/Content/PropImg/i1/large/006.jpg") alt=""></li>
+                        <li><img src="~/Content/PropImg/i1/thumb/004_t.jpg" data-large-src=@Url.Content("~/Content/PropImg/i1/large/004.jpg") alt=""></li>
+                    </ul>*@
+                    <ul class="pgwSlideshow">
+                        @if ((item.Images.Count()) > 0)
+                        {
+                            foreach (var img in item.Images)
+                            {
+                                <li><img src="@Url.Content(Html.GetPropertyImageThumbnail(img.PropertyId, img.ImageId).ToString())" data-large-src="@Url.Content(Html.GetPropertyImageLarge(img.PropertyId, img.ImageId).ToString())" height="100" width="100" alt=""></li>
+                            }
+                        }
+                        else
+                        {
+                            <li><img src="~/Content/Images/noimage.jpg" alt="@Tarrahaan.Resources.Global.NoImageAvailable"/></li>
+                        }
+
+                    </ul>
+
+                </figure>
+
+            </div>
+        </article>
+        <article class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-lg-6 col-md-2 col-sm-2 col-xs-2">
+                    <div class="property-header-no">
+                        @if (item.ItemCode != string.Empty)
+                            {<span class="label label-danger">@Html.DisplayFor(modelItem => item.ItemCode)</span>}
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-10 col-sm-10 col-xs-10">
+                    <div class="property-header-date">
+                        <span class="fix-float">@Tarrahaan.Resources.Global.LastUpdate : </span>&nbsp;<span class="fix-float">
+                        @Html.ConvertToCultureDate((DateTime) (item.LastUpdate))
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="property-description">
+                        <p>
+                            @Html.DisplayFor(modelItem => item.Details)
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
+                    <p class="property-info-title">@Tarrahaan.Resources.Global.PropertyFeature</p>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="property-info">
+                        @if (item.BedRoomNo != 0){
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><span class="fix-float">@Tarrahaan.Resources.Global.bedroom :</span><span class="fix-float">@Html.DisplayFor(modelItem => item.BedRoomNo)</span></div>
+                        }
+                        @if (item.BathRoomNo != 0){
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><span class="fix-float">@Tarrahaan.Resources.Global.bathroom :</span><span class="fix-float">@Html.DisplayFor(modelItem => item.BathRoomNo)</span></div>
+                        }
+                        @if (item.ParkingNo != 0){
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><span class="fix-float">@Tarrahaan.Resources.Global.parking :</span><span class="fix-float">@Html.DisplayFor(modelItem => item.ParkingNo)</span></div>
+                        }
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><span class="fix-float">@Html.DisplayFor(modelItem => item.Furnishing)</span></div>
+                        @if ((int)item.Builtup != 0){
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><span class="fix-float">@Tarrahaan.Resources.Global.builtup :</span><span class="fix-float"> @Html.DisplayFor(modelItem => item.Builtup) @Html.Raw(Tarrahaan.Resources.Global.Sqrmeter)</span></div>
+                        }
+
+                        @if ((int)item.LandArea != 0){
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><span class="fix-float">@Tarrahaan.Resources.Global.landarea :</span><span class="fix-float"> @Html.DisplayFor(modelItem => item.LandArea) @Html.Raw(Tarrahaan.Resources.Global.Sqrmeter)</span></div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-6">
+                        @if (Html.DisplayFor(modelItem => item.ActionId).ToString() == "2") // 2 is rent
+                            {
+                            <div class="property-price">
+                                <p><span class="property-price-type-title">@Tarrahaan.Resources.Global.depositfee</span><span class="property-price-number">@Html.DisplayFor(modelItem => item.RentDepositPrice) @Html.DisplayFor(modelItem => item.CurrencySign)</span></p>
+                            </div>
+                        }
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="property-price">
+                            @if (Html.DisplayFor(modelItem => item.ActionId).ToString() == "2")
+                            {
+                                 if (((int)item.RentDepositPrice != 0) || ((int)item.RentMonthlyPrice != 0))
+                                 {
+                                    <p><span class="property-price-type-title">@Tarrahaan.Resources.Global.rentalfee</span><span class="property-price-number">@Html.DisplayFor(modelItem => item.RentMonthlyPrice) @Html.DisplayFor(modelItem => item.CurrencySign)</span></p>
+                                 }
+                            }
+                            else
+                            {
+                                if ((int)item.AskingPrice != 0)
+                                {
+                                    <p><span class="property-price-type-title">@Tarrahaan.Resources.Global.askingprice</span><span class="property-price-number">@Html.DisplayFor(modelItem => item.AskingPrice) @Html.DisplayFor(modelItem => item.CurrencySign)</span></p>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </article>
+
+
+
+    </div>
+
+}
+</section>
+
+ 
+
+
+

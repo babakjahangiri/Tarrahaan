@@ -1,0 +1,30 @@
+﻿@using Tarrahaan.CoreLib.Strings
+@using Tarrahaan.Helpers
+
+@model IEnumerable<Tarrahaan.Models.SiteModels.ListLatestPropertiesSiteModels>
+
+
+@foreach (var item in Model)
+{
+
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <div class="thumbnail propitem-latest">
+            <a href="@Url.RouteUrl("ShowProperty", new {controller = "Property", action = "Show", lang = ViewBag.Lang, proId = Html.DisplayFor(modelItem => item.Id), seoKeyword = Html.MakeSeoFriendly(Html.DisplayFor(modelItem => item.Title).ToString())})">
+                <div class="proaction">@Html.DisplayFor(modelItem => item.Action)</div>
+@if ((item.ImageId) != Guid.Empty)
+{
+                 <img class="prop-image img-responsive" src="@Url.Content(Html.GetPropertyImageLarge(item.Id, item.ImageId).ToString())" alt="@Html.DisplayFor(modelItem => item.Title)" title="@Html.DisplayFor(modelItem => item.Title)" role="img" />
+}
+else
+{
+                <img class="prop-image img-responsive" src="~/Content/Images/noimage.jpg" alt="@Tarrahaan.Resources.Global.NoImageAvailable" title="@Tarrahaan.Resources.Global.NoImageAvailable" role="img" />
+}
+                <div>
+                    <span class="prop-text-latest">@Html.DisplayFor(modelItem => item.Title)</span>
+                </div>
+            </a>
+        </div>
+    </div>
+}
+
+ 

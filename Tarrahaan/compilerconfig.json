@@ -1,0 +1,42 @@
+﻿[
+  {
+    "outputFile": "lib/tarawesome/tar-awesome.css",
+    "inputFile": "lib/tarawesome/tar-awesome.scss"
+  },
+  {
+    "outputFile": "lib/styles/TarrahaanStyles/StyleSheet-fa.css",
+    "inputFile": "lib/styles/TarrahaanStyles/StyleSheet-fa.scss"
+  },
+  {
+    "outputFile": "lib/styles/TarrahaanStyles/StyleSheet.css",
+    "inputFile": "lib/styles/TarrahaanStyles/StyleSheet.scss"
+  },
+  {
+    "outputFile": "lib/bootstrap/css/bootstrap.css",
+    "inputFile": "lib/bootstrap/css/bootstrap.scss"
+  },
+  {
+    "outputFile": "lib/styles/TarrahaanStyles/StyleSheet-en.css",
+    "inputFile": "lib/styles/TarrahaanStyles/StyleSheet-en.scss"
+  },
+  {
+    "outputFile": "lib/bootstrap-rtl/css/bootstrap.css",
+    "inputFile": "lib/bootstrap-rtl/css/bootstrap.less"
+  },
+  {
+    "outputFile": "lib/itanicon/itanicon.css",
+    "inputFile": "lib/itanicon/itanicon.scss"
+  },
+  {
+    "outputFile": "lib/styles/AdminStyles/StyleSheet-en.css",
+    "inputFile": "lib/styles/AdminStyles/StyleSheet-en.scss"
+  },
+  {
+    "outputFile": "lib/hint/hint.rtl.css",
+    "inputFile": "lib/hint/hint.rtl.scss"
+  },
+  {
+    "outputFile": "lib/hint/hint.ltr.css",
+    "inputFile": "lib/hint/hint.ltr.scss"
+  }
+]

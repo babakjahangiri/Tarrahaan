@@ -1,0 +1,41 @@
+﻿
+<!DOCTYPE html>
+<html lang="@ViewBag.Lang">
+
+
+<head>
+    <title>
+        @ViewBag.Title
+    </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Babak Jahangiri - ITANC">
+    <link rel="shortcut icon" href="~/Content/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="~/Content/icons/favicon.ico" type="image/x-icon">
+@Styles.Render("~/assets/admincss")
+@Styles.Render("~/assets/css-font")
+
+    @RenderSection("ExtraStyles", required: false)
+
+</head>
+<body>
+@Html.Partial("_menu")
+<div class="main container">
+    @RenderBody()
+</div>
+
+
+@Scripts.Render("~/assets/js/Angular")
+@*@Scripts.Render("~/assets/js/Angular-UI-Bootstrap")*@
+@Scripts.Render("~/assets/js/jquery")
+@Scripts.Render("~/assets/js/bootstrap")
+@RenderSection("scripts", required: false)
+@Scripts.Render("~/assets/js/modernizr")
+
+
+
+
+</body>
+
+</html>

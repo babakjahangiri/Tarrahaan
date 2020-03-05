@@ -1,0 +1,16 @@
+﻿@using Tarrahaan.CoreLib.Localization
+@{
+    switch (Tarrahaan.CoreLib.Localization.Language.GetLanguage())
+    {
+        case (Lang.English):
+            Layout = "~/Views/Shared/_Layout.cshtml";
+            break;
+        case (Lang.Farsi):
+            Layout = "~/Views/Shared/_Layout.fa.cshtml";
+            break;
+        default:
+            Layout = "~/Views/Shared/_Layout.cshtml";
+            break;
+    }
+
+}

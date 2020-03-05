@@ -1,0 +1,39 @@
+﻿@import "_mixin.scss";
+
+@font-face {
+    font-family: "OpenSans";
+      src: url('/fonts/OpenSans.eot'); /* IE9 Compat Modes */
+      src: url('/fonts/OpenSans.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/OpenSans.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/OpenSans.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/fonts/OpenSans.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/OpenSans.svg#OpenSans') format('svg'); /* Legacy iOS */
+      font-weight: normal;
+      font-style:normal;
+}
+
+@font-face {
+    font-family: "OpenSans";
+      src: url('/fonts/OpenSans-Semibold.eot'); /* IE9 Compat Modes */
+      src: url('/fonts/OpenSans-Semibold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/OpenSans-Semibold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/OpenSans-Semibold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/fonts/OpenSans-Semibold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/OpenSans-Semibold.svg#OpenSans-Semibold') format('svg'); /* Legacy iOS */
+        font-weight: 600;
+        font-style: normal;
+}
+ 
+h1{@include HStyle(2.125em,36px);} //34px
+h2{@include HStyle(1.875em,35px);} //30px
+h3{@include HStyle(1.625em,33px);} //26px
+h4{@include HStyle(1.563em,30px);} //24px
+h5{@include HStyle(1.375em,28px);} //22px
+h6{@include HStyle(1.250em,26px);} //20px
+
+p {@include fontStyle(1em,2em);
+margin-top:10px;
+margin-bottom:10px;
+}
+blockquote {@include fontStyle(1.2em,1.7em);}
+

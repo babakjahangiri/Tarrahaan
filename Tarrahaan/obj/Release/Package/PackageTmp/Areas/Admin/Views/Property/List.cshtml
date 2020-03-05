@@ -1,0 +1,132 @@
+﻿@using Tarrahaan.Helpers
+@model Tarrahaan.Areas.Admin.Models.PropertyListPageViewModel
+@{
+    ViewBag.SectionName = "property";
+    ViewBag.Title = "ListProperties";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+    var pageSize = (int) ViewBag.PageSize;
+    var totalRecords = (long) ViewBag.TotalRecords;
+    var pageNo = (int) ViewBag.PageNo;
+    var pagingPath = (string) ViewBag.PagingPath;
+
+}
+ 
+@section ExtraStyles
+{
+    <style>
+        .tbl {
+            display: table;
+        }
+
+         .tblcel {
+             display: table-cell;
+             vertical-align: middle !important;
+         }
+    </style>
+
+}
+<div class="row">
+    <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+        <div class="page-title-seperator">
+            <div>
+                <h1 class="page-title">List Properties</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        Error : @ViewBag.Error
+    </div>
+}
+
+<article>
+@using (Html.BeginForm("List", "Property", FormMethod.Post, new { @class = "form-inline", @role = "form", @id = "FilterForm" }))
+{
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            @Html.DropDownListFor(m => m.SelectedActionId, Model.ActionList, @"- - - - " + Tarrahaan.Resources.Global.all + @" - - - - ", new { @id = "ActionList", @class = "form-control" })
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right font-l">
+            <p><span>Total Records :</span><span>@totalRecords</span></p>
+        </div>
+    </div>
+}
+    <p></p>
+    <table class="tbl table table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Action</th>
+                <th>Posted</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.PropertyItem)
+            {
+                <tr>
+                    <td class="tblcel">
+                        <a href="@Url.RouteUrl("ShowPropertyAdminRoute",new {controller = "Property", action = "Show", lang = ViewBag.Lang , PropertyId=item.Id})">
+                            @if ((item.ImageId) != Guid.Empty)
+                            {
+                                <img class="proplist-image img-responsive" style="height: 100px" src="@Url.Content(Html.GetPropertyImageThumbnail(item.Id, item.ImageId).ToString())" alt="@Html.DisplayFor(modelItem => item.Title)" title="@Html.DisplayFor(modelItem => item.Title)" role="img" />
+                            }
+                            else
+                            {
+                                <img class="proplist-image img-responsive" src="~/Content/Images/noimage.jpg" style="height: 100px" alt="@Tarrahaan.Resources.Global.NoImageAvailable" title="@Tarrahaan.Resources.Global.NoImageAvailable" role="img" />
+                            }
+                        </a>
+                    </td>
+                    <td class="tblcel">
+                        <a href="@Url.RouteUrl("ShowPropertyAdminRoute",new {controller = "Property", action = "Show", lang = ViewBag.Lang , PropertyId=item.Id})">
+                            @Html.DisplayFor(m => item.Title)
+                        </a>
+                    </td>
+                    <td class="tblcel">@Html.DisplayFor(m => item.ActionName)</td>
+                    <th class="tblcel">@item.PostedDate.ToLongDateString()</th>
+                    <th class="tblcel">
+                        @Html.RouteLink(" Edit ", "EditPropertyRoute", new {controller = "Property", action = "Edit", lang = ViewBag.Lang, PropertyId = @item.Id }, htmlAttributes: new { @class = "btn btn-default btn-lg" })
+                    </th>
+                </tr>
+
+            }
+
+        </tbody>
+    </table>
+
+    <p></p>
+
+    @*@if ((Model.PropertyItem.Count() != 0) && (totalRecords > pageSize))
+    {*@
+        <div class="align-center proplist-pagination">
+            @Html.Pagination("pagination", pageNo, pageSize, totalRecords, pagingPath , new { @class = "pagination pagination-lg", @role = "pagination", @id = "pg" })
+        </div>
+    @*}*@
+
+    @if (!Model.PropertyItem.Any())
+    {
+        <div class="proplist-noitem text-center">
+            <span>@Tarrahaan.Resources.Messages.PagingNoItem</span>
+        </div>
+    }
+
+</article>
+
+@section scripts
+{
+
+<script type="text/javascript">
+            $(function () {
+                $("#ActionList").change(function () {
+                    $('#FilterForm').submit();
+                });
+            });
+
+</script>
+
+}

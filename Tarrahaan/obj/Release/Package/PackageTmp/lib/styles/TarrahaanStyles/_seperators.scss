@@ -1,0 +1,20 @@
+﻿.page-title-seperator {
+position:relative;
+min-width:100px;
+width:100%;
+height:auto;
+border-bottom:2px solid #f1f1f1;
+float:$float;
+margin-top:40px;
+margin-bottom:30px;
+    > div {
+    position:relative;
+    z-index:10;
+    width:auto;
+    height:auto;
+    border-bottom:4px solid $lightcolor;
+    float:$float;
+    padding:$page-seperator-padding;
+    margin-bottom:-2px;
+  }
+}

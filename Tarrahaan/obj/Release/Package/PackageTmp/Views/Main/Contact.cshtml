@@ -1,0 +1,40 @@
+﻿@using System.Globalization
+@using Tarrahaan.Models.SiteModels
+@model IEnumerable<Tarrahaan.Models.SiteModels.ShowSitePageViewModel>
+
+@section PageSeo{
+
+   <link rel="canonical" href="@Tarrahaan.CoreLib.WebSite.SiteInfo.SiteName()/@ViewBag.Lang/About">
+    <title>
+        @Tarrahaan.Resources.Global.SeoTitle_Contact
+    </title>
+    <meta name="keywords" content="@Tarrahaan.Resources.Global.SeoKeyword_Contact">
+    <meta name="description" content="@Tarrahaan.Resources.Global.SeoDescription_Contact">
+    <meta name="ROBOTS" content="INDEX, FOLLOW">
+}
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+                <div class="page-title-seperator">
+                    <div>
+                        <h1 class="page-title">@Html.DisplayFor(modelItem => item.PageTitle)</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 hidden-md hiddem-sm hidden-xs"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+                <article class="page-content fix-direction" id="PageContent">
+                    @Html.Raw(item.PageContent)
+                </article>
+            </div>
+            <div class="col-lg-2 hidden-md hiddem-sm hidden-xs"></div>
+        </div>
+    }
+</div>
+
+ 

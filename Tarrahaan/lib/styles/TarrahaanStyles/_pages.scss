@@ -1,0 +1,66 @@
+﻿.page-title{
+    font-family:$fontfamily;
+    font-weight:$fontweightbold;
+    font-size:$fontsize-xl;
+}
+
+.page-content{
+    font-family:$fontfamily;
+    font-weight:$fontweightnormal;
+    font-size:$fontsize-l;
+    padding-right:15px;
+    padding-left:15px;
+    text-align:justify;
+    text-wrap:normal;
+    text-decoration:none;
+    word-wrap:hyphenate;
+}
+
+
+.fix-direction{
+    direction:$direction;
+}
+
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+   
+     #PageContent > p {@include fontStyle(0.75em,1.5em);}
+  
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+   
+   #PageContent > p {@include fontStyle(0.75em,1.5em);}
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    #PageContent > p {@include fontStyle(0.875em,1.6em);}
+ 
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+  #PageContent > p {@include fontStyle(0.875em,1.8em);}
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+           
+  #PageContent > p {@include fontStyle(1em,2em);}
+ 
+}
+
+/* X Large Devices, Wide Screens */
+@media only screen and (min-width : 1600px) {
+    #PageContent > p {@include fontStyle(1.2em,2em);}
+   
+}

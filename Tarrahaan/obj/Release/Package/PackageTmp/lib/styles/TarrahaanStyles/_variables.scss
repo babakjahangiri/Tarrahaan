@@ -1,0 +1,16 @@
+﻿$maincolor:#003366 ;
+$mlighten:40%; //lighten percentage for footer_rainbow seperator
+$mainlightcolor:lighten($maincolor, $mlighten);
+$lightcolor:#006699;
+$border-radius-all: 0 ;
+$notifycolor :#ff6a00;
+// ========== nav bar ============
+$navcolor :#003366;
+$navfontcolor:#fff;
+ 
+
+
+//-------- UNITS -----------
+
+$px1-em : 0.0625em;
+$px2-em : 0.125em;

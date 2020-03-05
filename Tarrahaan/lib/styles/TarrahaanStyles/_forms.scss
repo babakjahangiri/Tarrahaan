@@ -1,0 +1,87 @@
+﻿.form-element-filter{
+  //  padding:4px;
+    margin:5px;
+    font-family:$fontfamily;
+    font-size:$fontsize-m;
+    height:45px;
+}
+
+.form-lable{
+    display:inline-table;
+    width:auto;
+    vertical-align:middle;
+    padding:6px 12px;
+    height:36px;
+    color:#555;
+    font-family:$fontfamily;
+    font-size:$fontsize-l;
+
+}
+.form-icon{
+    display:inline-table;
+    width:auto;
+    vertical-align:middle;
+    padding:6px 12px;
+    height:34px;
+    color:#dcdcdc;
+}
+
+.filter-toggle-arrow{
+    color:$maincolor;
+    display:block;
+    padding:5px;
+
+}
+
+.toggle-switch-div{
+    text-align:center;
+}
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+.form-filter-hidden{
+display:none;
+}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+.form-filter-hidden{
+display:none;
+}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+ .form-filter-hidden{
+display:block;
+}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+.form-filter-hidden{
+display:block;
+}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+.form-filter-hidden{
+display:block;
+}
+}
+
+/* X Large Devices, Wide Screens */
+@media only screen and (min-width : 1600px) {
+.form-filter-hidden{
+display:block;
+}
+}
+
+
+
+ 

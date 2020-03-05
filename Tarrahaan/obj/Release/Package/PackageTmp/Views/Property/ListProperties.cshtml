@@ -1,0 +1,186 @@
+﻿@using System.Globalization
+@using Tarrahaan.CoreLib.Localization
+@using Tarrahaan.Controllers
+@using Tarrahaan.Helpers
+@using Tarrahaan.CoreLib.Strings
+
+@model IEnumerable<Tarrahaan.Models.ListPropertiesSiteModels>
+
+
+@section PageSeo{
+
+    <link rel="canonical" href="@Html.Raw(ViewBag.canonical)">
+    <title>
+        @ViewBag.SeoTitle
+    </title>
+    <meta name="keywords" content="@Tarrahaan.Resources.Global.SeoKeyword_ListProperties">
+    <meta name="description" content="@Tarrahaan.Resources.Global.SeoDescription_ListProperties">
+   @if ((int) ViewBag.PageNo > 1)
+   {
+     <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+   }
+   else
+   {
+     <meta name="ROBOTS" content="INDEX, FOLLOW">
+   }
+}
+<div class="container">
+    <section class="listpro-filter">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="form-filter-hidden" id="form-filter">
+                    <!-- toggle container -->
+                    <div class="filter-box">
+                        <!-- start form here -->
+                        @using (Html.BeginForm("ListProperties", "Property", FormMethod.Post, new { @class = "form-inline", @role = "form" ,@id = "FilterForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @*<form class="form-inline" role="form">*@
+                            <div class="form-lable"><span>@ViewBag.ActionLocalName</span></div>
+                            <i class="fa @Tarrahaan.Resources.Icons.chevronToRight fa-2x form-icon hidden-xs"></i>
+                            <div class="form-group">
+                                @*Html.DropDownList("Category", ViewBag.Category, new { @class = "form-control form-element-filter" })*@
+
+                                @Html.DropDownList("CategoryList", null, @"- - - - " + Tarrahaan.Resources.Global.all + @" - - - - ", new { @class = "form-control form-element-filter" })
+
+                                <i class="fa @Tarrahaan.Resources.Icons.chevronToRight fa-2x form-icon hidden-xs"></i>
+                                @Html.DropDownList("TypeList", null, @"- - - - " + Tarrahaan.Resources.Global.all + @" - - - - ", new { @class = "form-control form-element-filter" })
+                                <i class="fa @Tarrahaan.Resources.Icons.chevronToRight fa-2x form-icon hidden-xs"></i>
+                                <div class="form-group">
+                                    @Html.DropDownList("FurnishingList", null, @"- - - - " + Tarrahaan.Resources.Global.all + @" - - - - ", new { @class = "form-control form-element-filter" })
+                                </div>
+                                <button type="submit" class="form-control form-element-filter btn btn-default">@Tarrahaan.Resources.Global.view.ToString()</button>
+                            </div>
+
+                            @Html.Hidden("lang", (object)ViewBag.lang)
+                            @Html.Hidden("praction", (object)ViewBag.praction)
+                           
+
+                        <!-- End form -->
+                        }
+
+                    </div>
+                </div> <!--end toggle container -->
+            </div>
+        </div>
+    </section>
+
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-lg hidden-md hidden-sm visible-xs toggle-switch-div"><a href="#" id="a-toggle-arrow" class="filter-toggle-arrow"><i class="fa fa-chevron-down fa-2x" id="btn-toggle-chevron"></i></a></div>
+    </div>
+</div>
+
+<section class="listpro container">
+
+    @foreach (var item in Model)
+    {
+        <div class="proplist-row" role="grid">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 proplist-col-img text-center">
+                    @*@Html.ActionLink("ShowProperty", "Show", "Property", new { lang = "en", proId = "1", seoKeyword = "abxCysd4gfg" }, null)*@
+
+                    <a href="@Url.RouteUrl("ShowProperty", new {controller = "Property", action = "Show", lang = ViewBag.Lang, proId = Html.DisplayFor(modelItem => item.Id), seoKeyword = Html.MakeSeoFriendly(Html.DisplayFor(modelItem => item.Title).ToString())})">
+                       @if ((item.ImageId) != Guid.Empty)
+                        {
+                        <div class="proplist-showphotos">
+                            <span class="proplist-item-number">@Html.DisplayFor(modelItem => item.ImagesCount)</span><i class="fa fa-camera" aria-hidden="true"></i>
+                        </div>
+
+                        <img class="proplist-image img-responsive" src="@Url.Content(Html.GetPropertyImageLarge(item.Id, item.ImageId).ToString())" alt="@Html.DisplayFor(modelItem => item.Title)" title="@Html.DisplayFor(modelItem => item.Title)" role="img" />
+                        }
+                        else
+                        {
+                        <img class="proplist-image img-responsive" src="~/Content/Images/noimage.jpg" alt="@Tarrahaan.Resources.Global.NoImageAvailable" title="@Tarrahaan.Resources.Global.NoImageAvailable" role="img" />
+                        }
+
+                    </a>
+                </div>
+
+                <div class="col-lg-7 col-md-8 col-sm-8 col-xs-12 proplist-col-body" role="contentinfo">
+                    <div class="col-lg-12">
+                        <h4 class="proplist-title">
+                            <a href="@Url.RouteUrl("ShowProperty", new {controller = "Property", action = "Show", lang = ViewBag.Lang, proId = Html.DisplayFor(modelItem => item.Id), seoKeyword = Html.MakeSeoFriendly(Html.DisplayFor(modelItem => item.Title).ToString())})">
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="col-lg-12">
+                        <ul class="proplist-items">
+                            @if (item.RoomNo != 0)
+                            {
+                                <li><i class="itanicon itanicon-singlebed itanicon-1x" aria-hidden="true"></i><span class="proplist-item-number">@Html.DisplayFor(modelItem => item.RoomNo)</span></li>
+                            }
+
+                            @if (item.BathNo != 0)
+                            {
+                                <li><i class="itanicon itanicon-bathtube itanicon-1x" aria-hidden="true"></i><span class="proplist-item-number">@Html.DisplayFor(modelItem => item.BathNo)</span></li>
+                            }
+
+                            @if (item.ParkingNo != 0)
+                            {
+                                <li><i class="itanicon itanicon-garage itanicon-1x" aria-hidden="true"></i><span class="proplist-item-number">@Html.DisplayFor(modelItem => item.ParkingNo)</span></li>
+                            }
+                            @if ((int)item.Builtup != 0)
+                            {
+                                <li><i class="itanicon itanicon-plan itanicon-1x" aria-hidden="true"></i><span class="proplist-item-number">@Html.DisplayFor(modelItem => item.Builtup)</span><span class="item-unit">@Html.Raw(Tarrahaan.Resources.Global.Sqrmeter)</span></li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="col-lg-12">
+                        <P class="proplist-description">
+                            @Truncate.TextTruncate(item.Description,300,"...")
+                        </P>
+
+                        <span class="proplist-viewmore">
+                            <a href="@Url.RouteUrl("ShowProperty", new {controller = "Property", action = "Show", lang = ViewBag.Lang, proId = Html.DisplayFor(modelItem => item.Id), seoKeyword = Html.MakeSeoFriendly(Html.DisplayFor(modelItem => item.Title).ToString())})" class="btn" role="button">@Tarrahaan.Resources.Global.moredetails</a>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="col-lg-2 hidden-md hidden-sm hidden-xs"></div>
+            </div>
+        </div>
+
+    }
+
+</section>
+
+@{
+    const int pageSize = 5;
+    
+}
+
+@if ((Model.Count() != 0) && (ViewBag.TotalRecords > pageSize))
+{
+     
+    <div class="align-center proplist-pagination">
+        @Html.Pagination("pagination", (int)ViewBag.PageNo, pageSize, (long)ViewBag.TotalRecords, (string)ViewBag.PagingPath , new { @class = "pagination pagination-lg", @role = "pagination", @id = "pg" })
+    </div>
+}
+
+@if ( !Model.Any() )
+{
+    <div class="proplist-noitem text-center">
+        <span>@Tarrahaan.Resources.Messages.PagingNoItem</span>
+    </div>
+}
+
+
+
+@section scripts{
+        @Scripts.Render("~/assets/js/listprofilterresponsive")
+
+
+        <script type="text/javascript">
+            $(function () {
+                $("#CategoryList").change(function () {
+                    $('#FilterForm').submit();
+                });
+            });
+
+        </script>
+
+    }

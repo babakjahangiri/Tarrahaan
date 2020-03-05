@@ -1,0 +1,69 @@
+﻿@using System.Globalization
+@using System.Web.Mvc.Html
+@using Tarrahaan.Models
+@using Tarrahaan.Models.SiteModels
+@*@model IEnumerable<Tarrahaan.Models.SiteModels.ListLatestPropertiesSiteModels>*@
+
+@section PageSeo{
+    <link rel="canonical" href="@Tarrahaan.CoreLib.WebSite.SiteInfo.SiteName()/@ViewBag.Lang">
+    <title>
+       @Tarrahaan.Resources.Global.SeoTitle_Home
+    </title>
+    <meta name="keywords" content="@Tarrahaan.Resources.Global.SeoKeyword_MainPage">
+    <meta name="description" content="@Tarrahaan.Resources.Global.SeoDescription_MainPage">
+    <meta name="ROBOTS" content="INDEX, FOLLOW">
+}
+ @section extrastyles{
+
+ @Styles.Render("~/assets/css/slider")
+     
+ }
+@section slider{
+
+<section class="sy-slider-wrap">
+        <article class="sy-slider-crop">
+             <ul id="sy-slider" role="slider">
+                <li><a href="#slide1"><img src="~/Content/Images/SliderImgs/tehran.jpg" alt="tehran"></a></li>
+                <li><a href="#slide2"><img src="~/Content/Images/SliderImgs/villa.jpg" alt=""></a></li>
+                <li><a href="#slide3"><img src="~/Content/Images/SliderImgs/apartment.jpg" alt=""></a></li>
+            </ul>
+        </article>
+</section>
+
+}
+
+<section class="container latest" role="contentinfo">
+    <h1 class="latestcaption">@Tarrahaan.Resources.Global.LatestProperties</h1>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+            @*@Html.Partial("_LatestProperties",Model)*@
+
+            @Html.Action("LatestProperties","Main")
+
+        </div>
+    </div>
+</section>
+
+    @section scripts{
+        @Scripts.Render("~/assets/js/slider")
+        <script>
+            jQuery('#sy-slider').slippry({
+                // general elements & wrapper
+                slippryWrapper: '<div class="sy-box pictures-slider" />', // wrapper to wrap everything, including pager
+                // options
+                adaptiveHeight: false, // height of the sliders adapts to current slide
+                captions: false, // Position: overlay, below, custom, false
+                // pager
+                pager: false,
+                // controls
+                controls: false,
+                autoHover: false,
+                // transitions
+                transition: 'kenburns', // fade, horizontal, kenburns, false
+                kenZoom: 40,
+                speed: 7000 // time the transition takes (ms)
+            });
+
+        </script>
+    }

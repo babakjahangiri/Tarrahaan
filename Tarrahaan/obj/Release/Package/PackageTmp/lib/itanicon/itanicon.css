@@ -1,0 +1,217 @@
+﻿/*!
+ *  Itanicon 1.0.0 by  @babak-jhn  babakjahangiri@gmail.com
+ */
+/* FONT PATH
+ * -------------------------- */
+@font-face {
+  font-family: 'Itanicon';
+  src: url("/fonts/Itanicon.eot?v=1.0.0");
+  src: url("/fonts/Itanicon.eot?#iefix&v=1.0.0") format("embedded-opentype"), url("/fonts/Itanicon.woff2?v=1.0.0") format("woff2"), url("/fonts/Itanicon.woff?v=1.0.0") format("woff"), url("/fonts/Itanicon.ttf?v=1.0.0") format("truetype"), url("/fonts/Itanicon.svg?v=1.0.0#itaniconregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+.itanicon {
+  display: inline-block;
+  font: normal normal normal 14px/1 Itanicon;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/* makes the font 33% larger relative to the icon container */
+.itanicon-lg {
+  font-size: 1.33333em;
+  line-height: 0.75em;
+  vertical-align: -15%; }
+
+.itanicon-1x {
+  font-size: 1.500em; }
+
+.itanicon-2x {
+  font-size: 2em; }
+
+.itanicon-3x {
+  font-size: 3em; }
+
+.itanicon-4x {
+  font-size: 4em; }
+
+.itanicon-5x {
+  font-size: 5em; }
+
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
+.itanicon-smileface:before {
+  content: "\e100"; }
+
+.itanicon-winkface:before {
+  content: "\e101"; }
+
+.itanicon-wink2face:before {
+  content: "\e102"; }
+
+.itanicon-sadface:before {
+  content: "\e103"; }
+
+.itanicon-likeface:before {
+  content: "\e104"; }
+
+.itanicon-surpriseface:before {
+  content: "\e105"; }
+
+.itanicon-sunglassesface:before {
+  content: "\e106"; }
+
+.itanicon-refresh:before {
+  content: "\e10c"; }
+
+.itanicon-loading:before {
+  content: "\e10d"; }
+
+.itanicon-bulding1:before {
+  content: "\e112"; }
+
+.itanicon-moneyclaim:before {
+  content: "\e115"; }
+
+.itanicon-boxclaim:before {
+  content: "\e116"; }
+
+.itanicon-handshake:before {
+  content: "\e117"; }
+
+.itanicon-bighandclaim:before {
+  content: "\e118"; }
+
+.itanicon-suggest1:before {
+  content: "\e11d"; }
+
+.itanicon-target:before {
+  content: "\e11e"; }
+
+.itanicon-suggest2:before {
+  content: "\e11f"; }
+
+.itanicon-store1:before {
+  content: "\e120"; }
+
+.itanicon-store2:before {
+  content: "\e121"; }
+
+.itanicon-store3:before {
+  content: "\e122"; }
+
+.itanicon-store4:before {
+  content: "\e123"; }
+
+.itanicon-suggeststore:before {
+  content: "\e124"; }
+
+.itanicon-cartinlaptop:before {
+  content: "\e125"; }
+
+.itanicon-cart1:before {
+  content: "\e126"; }
+
+.itanicon-cart2:before {
+  content: "\e127"; }
+
+.itanicon-cart3:before {
+  content: "\e128"; }
+
+.itanicon-cart4:before {
+  content: "\e129"; }
+
+.itanicon-garage:before {
+  content: "\e200"; }
+
+.itanicon-parking:before {
+  content: "\e201"; }
+
+.itanicon-bathtube:before {
+  content: "\e202"; }
+
+.itanicon-bathtube2:before {
+  content: "\e203"; }
+
+.itanicon-showerhead:before {
+  content: "\e204"; }
+
+.itanicon-masterbed:before {
+  content: "\e205"; }
+
+.itanicon-masterbed2:before {
+  content: "\e206"; }
+
+.itanicon-singlebed:before {
+  content: "\e207"; }
+
+.itanicon-kitchen:before {
+  content: "\e208"; }
+
+.itanicon-tvset:before {
+  content: "\e209"; }
+
+.itanicon-washingmachine:before {
+  content: "\e20a"; }
+
+.itanicon-toilet:before {
+  content: "\e20b"; }
+
+.itanicon-toiletman:before {
+  content: "\e20c"; }
+
+.itanicon-swimmingpool:before {
+  content: "\e20d"; }
+
+.itanicon-remotegarage:before {
+  content: "\e20e"; }
+
+.itanicon-remotedoor:before {
+  content: "\e20f"; }
+
+.itanicon-cctv:before {
+  content: "\e211"; }
+
+.itanicon-wifi:before {
+  content: "\e212"; }
+
+.itanicon-gym:before {
+  content: "\e213"; }
+
+.itanicon-plan:before {
+  content: "\e214"; }
+
+.itanicon-homeprice:before {
+  content: "\e215"; }
+
+.itanicon-homesearch:before {
+  content: "\e216"; }
+
+.itanicon-homesold:before {
+  content: "\e217"; }
+
+.itanicon-homesale:before {
+  content: "\e218"; }
+
+.itanicon-homerent:before {
+  content: "\e219"; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto; }
+

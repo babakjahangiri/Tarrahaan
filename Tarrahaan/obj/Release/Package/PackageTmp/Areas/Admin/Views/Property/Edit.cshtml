@@ -1,0 +1,408 @@
+﻿@model Tarrahaan.Areas.Admin.Models.PropertyViewModel
+
+@{
+    ViewBag.SectionName = "property";
+    ViewBag.Title = "EditProperty";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+        <div class="page-title-seperator">
+            <div>
+                <h1 class="page-title">Edit Property</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        Error : @ViewBag.Error
+    </div>
+}
+
+
+
+<ul class="nav nav-tabs">
+    <li role="contentinfo" class="active"><a>Property Info</a></li>
+    <li role="contentinfo"><a href="~/WebAdmin/en/Property/Album/@ViewBag.PropertyId">Property Album</a></li>
+</ul>
+@using (Html.BeginForm("Edit", "Property", FormMethod.Post, new { @class = "form-horizontal", @role = "form", @id = "AddPropertyForm", @onsubmit = "return ControlSubmit()" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.PropertyId)
+    
+    <article class="tab-border tab-container-master">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ItemCode, htmlAttributes: new { @class = "control-label col-lg-2 col-md-2 col-sm-2 col-xs-12" })
+                    <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12">
+                        @Html.TextBoxFor(m => m.ItemCode, new { @class = "form-control", @placeholder = "Optional Item Code", @maxlength = "10" })
+                    </div>
+                    <div class="col-lg-6 col-md-2 hidden-sm hidden-xs"></div>
+                </div>
+
+                <div class="form-group ">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+                    <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12">
+                        <label class="radio-inline" for="radio-forSale">
+                            @Html.RadioButtonFor(m => m.SelectedActionId, 1, new { @id = "radio-forSale", @name = "proAction", @checked = "checked" })
+                            <span>For Sale</span>
+                        </label>
+                        <label class="radio-inline" for="radio-toLet">
+                            @Html.RadioButtonFor(m => m.SelectedActionId, 2, new { @id = "radio-toLet", @name = "proAction" })
+                            <span>To Let</span>
+                        </label>
+                    </div>
+                    <div class="col-lg-6 hidden-md hidden-sm hidden-xs"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12" for="CategoryList">
+                        Category :
+                    </label>
+                    <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12">
+                        @Html.DropDownListFor(m => m.SelectedCategoryId,Model.CategoryList, new { @id = "CategoryList", @class = "form-control select", @onchange = "FillPropertyTypes()" })
+                    </div>
+                    <div class="col-lg-6 col-md-2 hidden-sm hidden-xs"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12" for="ProTypeList">
+                        Type :
+                    </label>
+                    <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12">
+                        @Html.DropDownListFor(m => m.SelectedTypeId, Model.TypeList, new { @id = "ProTypeList", @class = "form-control select" })
+                    </div>
+                    <div class="col-lg-6 col-md-2 hidden-sm hidden-xs"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+                    <div class="col-lg-4 col-md-10 col-sm-10 col-xs-12">
+                        <div class="row">
+                            <div class="form-inline col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="itanicon itanicon-singlebed itanicon-1x" aria-hidden="true"></i>
+                                        </span>
+                                        @Html.TextBoxFor(m => m.BedRoomNo, new { @class = "form-control JustNumber", @id = "bedroom", @type = "number", @min = "0", @max = "99", @maxlength = "2" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="itanicon itanicon-bathtube itanicon-1x" aria-hidden="true"></i>
+                                        </span>
+                                        @Html.TextBoxFor(m => m.BathRoomNo, new { @class = "form-control JustNumber", @id = "bathroom", @type = "number", @min = "0", @max = "99", @maxlength = "2" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 hidden-md hidden-sm hidden-xs"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+                    <div class="col-lg-4 col-md-10 col-sm-10 col-xs-12">
+                        <div class="row">
+                            <div class="form-inline col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="itanicon itanicon-garage itanicon-1x" aria-hidden="true"></i>
+                                        </span>
+                                        @Html.TextBoxFor(m => m.ParkingNo, new { @class = "form-control JustNumber", @id = "parking", @type = "number", @min = "0", @max = "99", @maxlength = "2" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <div class="input-group">
+                                        @Html.DropDownListFor(m => m.SelectedFurnishingId, Model.FurnishingList, new { @id = "FurnishingList", @class = "form-control select" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 hidden-md hidden-sm hidden-xs"></div>
+                </div>
+                @* Built-up - LandArea *@
+                <div class="form-group">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+                    <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                    <label class="control-label" for="builtup">Builtup : </label>
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.Builtup, new { @class = "form-control JustNumber", @id = "builtup", @type = "text", @maxlength = "5" })
+                                        <span class="input-group-addon">@Html.Raw(Tarrahaan.Resources.Global.Sqrmeter)</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                    @Html.LabelFor(m => m.LandArea, htmlAttributes: new { @class = "control-label" })
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.LandArea, new { @class = "form-control JustNumber", @id = "landarea", @type = "text", @maxlength = "5" })
+                                        <span class="input-group-addon">@Html.Raw(Tarrahaan.Resources.Global.Sqrmeter)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-2 hidden-sm hidden-xs"></div>
+                </div>
+
+                @* Currency *@
+                <div class="form-group">
+                    <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12" for="currencyId">
+                        Currency :
+                    </label>
+                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+                        @Html.DropDownListFor(m => m.SelectedCurrencyId, Model.CurrencyList, new { @id = "currencyId", @class = "form-control select" })
+                    </div>
+                    <div class="col-lg-8 col-md-6 col-sm-6 hidden-xs"></div>
+                </div>
+                @* Rent Price , Deposit price *@
+                <div class="form-group" Id="tolet">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+                    <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                    <label class="control-label" for="depositefee">Deposit Fee : </label>
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.RentDepositPrice, new { @class = "form-control PriceFormat", @id = "depositefee", @maxlength = "16", @placeholder = "Deposit Fee" })
+                                        <span class="input-group-addon currencysign">$</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                    <label class="control-label" for="rentalfee">Rental Fee(monthly) : </label>
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.RentMonthlyPrice, new { @class = "form-control PriceFormat", @id = "rentalfee", @type = "text", @maxlength = "16", @placeholder = "Rental Fee" })
+                                        <span class="input-group-addon currencysign">$</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-2 hidden-sm hidden-xs"></div>
+                </div>
+
+
+                @* Asking price *@
+                <div class="form-group" Id="forslae">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+                    <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                    <label class="control-label" for="askingprice">Asking Price : </label>
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.AskingPrice, new { @class = "form-control PriceFormat", @id = "askingprice", @type = "text", @maxlength = "16", @name = "askingprice", @placeholder = "Asking Price" })
+                                        <span class="input-group-addon currencysign">$</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-2 hidden-sm hidden-xs"></div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.AdminComment, htmlAttributes: new {@class = "control-label col-lg-2 col-md-2 col-sm-2 col-xs-12"})
+                    <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12">
+                        @Html.EditorFor(m => m.AdminComment, new {htmlAttributes = new {@class = "form-control", @placeholder = "Any Comment Just For Admin"}})
+                    </div>
+                    <div class="col-lg-6 col-md-2 hidden-sm hidden-xs"></div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Visible, htmlAttributes: new { @class = "control-label col-lg-2 col-md-2 col-sm-2 col-xs-12" })
+                    <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12">
+                        @Html.CheckBoxFor(m => m.Visible)
+                    </div>
+                    <div class="col-lg-6 col-md-2 hidden-sm hidden-xs"></div>
+                </div>
+
+              
+
+
+
+
+            </div>
+        </div>
+
+        <br /><br />
+
+        <div class="row">
+            <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#en"><img src="~/Content/Images/en-flag.png" class="img-responsive flag-tab" alt="English" />&nbsp; English</a></li>
+                    <li><a data-toggle="tab" href="#fa"><img src="~/Content/Images/fa-flag.png" class="img-responsive flag-tab" alt="Persian" />&nbsp; Persian</a></li>
+                </ul>
+
+                <div class="tab-content tab-border tab-container">
+
+                    @*
+                        var langContent = Model.PropertyLangMapping;
+                        @for (int i ; i< Model.PropertyLangMapping.Lenght; i++)
+                        // its statis assing , can have dynamic language assignment
+                    *@
+                    <div id="en" class="tab-pane fade in active">
+                        @if (Model.PropertyLangMapping.ElementAtOrDefault(0) != null)
+                        {
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.PropertyLangMapping[0].Title, htmlAttributes: new {@for = "en-title"})
+                                    @Html.TextBoxFor(m => m.PropertyLangMapping[0].Title, new {@class = "form-control", @id = "en-title",@maxlength=50, @placeholder = "Property Title in English"})
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.PropertyLangMapping[0].Details, htmlAttributes: new {@for = "en-details"})
+                                    @Html.TextAreaFor(m => m.PropertyLangMapping[0].Details, new {@id = "en-details", @class = "form-control", @rows = "6", @placeholder = "Property Detials in English"})
+                                </div>
+                            </div>
+                        </div>
+                        @Html.HiddenFor(m => m.PropertyLangMapping[0].LangId, new {@Value = "en"})
+                        }
+                    </div>
+
+
+                    <div id="fa" class="tab-pane fade in">
+                        @if (Model.PropertyLangMapping.ElementAtOrDefault(1) != null)
+                         {
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.PropertyLangMapping[1].Title, htmlAttributes: new {@for = "fa-title"})
+                                    @Html.TextBoxFor(m => m.PropertyLangMapping[1].Title, new {@class = "form-control rtl", @id = "fa-title", @maxlength = 50, @placeholder = "Property Title in Persian"})
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.PropertyLangMapping[1].Details, htmlAttributes: new {@for = "fa-details"})
+                                    @Html.TextAreaFor(m => m.PropertyLangMapping[1].Details, new {@id = "fa-details", @class = "form-control rtl", @rows = "6", @placeholder = "Property Detials in Persian"})
+                                </div>
+                            </div>
+                        </div>
+                        @Html.HiddenFor(m => m.PropertyLangMapping[1].LangId, new {@Value = "fa"})
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </article>
+    <p>
+        <button type="submit" class="btn btn-primary btn-lg"> Save </button>
+    </p>
+    <p>&nbsp;</p>
+
+}
+
+
+@section scripts
+{
+
+    <script src="~/lib/customjs/ajaxproptypes.js"></script>
+    <script src="~/lib/customjs/justnumber.js"></script>
+    <script src="~/lib/customjs/price_format2.js"></script>
+    <script>
+
+        $(document).ready(function() {
+            Check_PropertyAction();
+            Check_Currency($('#currencyId :selected').text());
+        });
+
+
+        // ------------ EVENTS ---------------------
+
+        $('#AddPropertyForm').submit(function() {
+           // Remove_Commas();
+           // return false;
+        });
+
+
+        $('#radio-forSale').click(function() {
+            Check_PropertyAction();
+        });
+
+        $('#radio-toLet').click(function() {
+            Check_PropertyAction();
+        });
+
+
+        $('#currencyId').change(function() {
+            Check_Currency($('#currencyId :selected').text());
+        });
+
+        //$(function () {
+        //    $("#CategoryList").change(function () {
+        //        $('#AddPropertyForm').submit();
+        //    });
+        //});
+
+        // ------------END  EVENTS ---------------------
+
+        function Check_Currency(currencyformat) {
+            $(".currencysign").text(currencyformat);
+        }
+
+        function Check_PropertyAction() {
+            if ($('#radio-forSale').is(':checked')) {
+                $("#tolet").hide();
+                $("#forslae").show();
+            }
+
+            if ($('#radio-toLet').is(':checked')) {
+                $("#forslae").hide();
+                $("#tolet").show();
+            }
+        };
+
+        function ControlSubmit() {
+            $(".PriceFormat").text.replace(/,/g, "");
+            alert($(".PriceFormat"));
+            return false;
+        }
+
+
+        function Remove_Commas() {
+            $(".PriceFormat").text.replace(/,/g, "");
+            alert($(".PriceFormat"));
+        };
+
+
+        $('.PriceFormat').priceFormat({
+            prefix: '',
+            centsSeparator: '',
+            centsLimit: 0,
+            thousandsSeparator: ','
+        });
+
+
+    </script>
+
+}
+
+
+
