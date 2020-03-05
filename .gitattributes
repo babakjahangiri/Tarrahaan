@@ -3,7 +3,7 @@
 *.htm linguist-detectable=false 
 *.html linguist-detectable=false 
 *.cs linguist-detectable=true
-
+*.cshtml linguist-detectable=true
 
 
 
@@ -32,9 +32,6 @@
 *.csproj text merge=union 
 *.css text
 *.cshtml text
-*.htm text
-*.html text
-*.js text
 *.msbuild text
 *.resx text merge=union
 *.ruleset text
